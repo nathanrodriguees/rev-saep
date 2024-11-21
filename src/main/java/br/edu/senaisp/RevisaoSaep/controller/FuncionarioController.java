@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.senaisp.RevisaoSaep.model.Funcionario;
 import br.edu.senaisp.RevisaoSaep.repository.FuncionarioRepository;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/funcionario")
@@ -35,9 +37,11 @@ public class FuncionarioController {
 	}
 	
 	@PostMapping("/gravar")
-	public String gravar(Funcionario funcionario) {
+	public String gravar(@Valid Funcionario funcionario, BindingResult bindingResult) {
 		
-		System.out.println(funcionario);
+		if (bindingResult.hasErrors()) {
+			return "/RevSaepFrm";
+		}
 		
 		funcionarioRepository.save(funcionario);
 		

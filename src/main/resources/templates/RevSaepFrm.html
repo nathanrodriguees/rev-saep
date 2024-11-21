@@ -10,10 +10,15 @@
 		
 		<label>Nome:</label>
 		<input th:field="*{nome}" />
+		<div>
+			<p th:if="${#fields.hasErrors('nome')}">Nome Obrigatório</p>
+		</div>
 	
 		<label>E-mail:</label>
 		<input th:field="*{email}" />
-		
+		<div> 
+			<p th:if="${#fields.hasErrors('email')}">E-mail: Obrigatório</p>
+		</div>
 		
 		<button type="submit">Gravar</button>
 	</form>
