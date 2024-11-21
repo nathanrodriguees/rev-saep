@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Funcionarios</title>
+</head>
+<body>
+
+	<a href="/funcionario/novo"><button >Novo</button></a>
+
+	<table>
+		<tr>
+			<th>Codigo</th>
+			<th>Nome</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="funcionario : ${funcionarios}">
+			<th th:text="*{funcionario.id}">Codigo</th>
+			<th th:text="*{funcionario.nome}">Nome</th>
+			<th th:text="*{funcionario.email}">Email</th>
+		</tr>
+	</table>
+
+</body>
+</html>
