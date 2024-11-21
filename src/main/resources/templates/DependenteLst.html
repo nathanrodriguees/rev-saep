@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<a href="/dependente/novo"><button>Novo</button></a>
+
+	<table>
+		<tr>
+			<th>Codigo</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Funcionario</th>
+		</tr>
+		<tr th:each="dependente : ${dependentes}">
+			<th th:text="*{dependente.id}">Codigo</th>
+			<th th:text="*{dependente.nome}">Nome</th>
+			<th th:text="*{dependente.email}">Email</th>
+			<th th:text="*{dependente.funcionario.nome}">Funcionario</th>
+		</tr>
+	</table>
+
+</body>
+</html>
